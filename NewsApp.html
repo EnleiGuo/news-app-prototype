@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻应用原型</title>
+    <style>
+        /* 重置样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 414px;
+            height: 896px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            border-radius: 30px;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            height: 50px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 分类栏 */
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category {
+            padding: 6px 15px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        
+        .category.active {
+            background-color: #1890ff;
+            color: white;
+        }
+        
+        /* 新闻列表 */
+        .news-list {
+            padding: 15px;
+            overflow-y: auto;
+            height: calc(100% - 170px);
+        }
+        
+        .news-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .news-info {
+            flex: 1;
+            padding-right: 15px;
+        }
+        
+        .news-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .news-meta {
+            display: flex;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .news-source {
+            margin-right: 10px;
+        }
+        
+        .news-thumbnail {
+            width: 120px;
+            height: 80px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        /* 底部导航 */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .nav-item.active {
+            color: #1890ff;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        
+        .nav-item.active .nav-icon {
+            background-color: #e6f7ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="navbar">
+            <div class="logo">今日新闻</div>
+            <div class="search-icon">🔍</div>
+        </div>
+        
+        <!-- 分类栏 -->
+        <div class="categories">
+            <div class="category active">推荐</div>
+            <div class="category">热点</div>
+            <div class="category">科技</div>
+            <div class="category">财经</div>
+            <div class="category">娱乐</div>
+            <div class="category">体育</div>
+            <div class="category">健康</div>
+            <div class="category">汽车</div>
+        </div>
+        
+        <!-- 新闻列表 -->
+        <div class="news-list">
+            <!-- 新闻条目 1 -->
+            <div class="news-item">
+                <div class="news-info">
+                    <div class="news-title">人工智能在医疗领域的最新应用，为患者带来了更加精准的诊断和治疗方案</div>
+                    <div class="news-meta">
+                        <div class="news-source">科技日报</div>
+                        <div class="news-time">2小时前</div>
+                    </div>
+                </div>
+                <div class="news-thumbnail"></div>
+            </div>
+            
+            <!-- 新闻条目 2 -->
+            <div class="news-item">
+                <div class="news-info">
+                    <div class="news-title">全国多地迎来今年首场降雨，气象专家提醒市民注意防范</div>
+                    <div class="news-meta">
+                        <div class="news-source">央视新闻</div>
+                        <div class="news-time">5小时前</div>
+                    </div>
+                </div>
+                <div class="news-thumbnail"></div>
+            </div>
+            
+            <!-- 新闻条目 3 -->
+            <div class="news-item">
+                <div class="news-info">
+                    <div class="news-title">国内首个智能网联汽车产业园区正式投入使用，将推动相关产业快速发展</div>
+                    <div class="news-meta">
+                        <div class="news-source">经济参考报</div>
+                        <div class="news-time">昨天</div>
+                    </div>
+                </div>
+                <div class="news-thumbnail"></div>
+            </div>
+            
+            <!-- 新闻条目 4 -->
+            <div class="news-item">
+                <div class="news-info">
+                    <div class="news-title">超级杯比赛落幕，卫冕冠军成功捧杯，创造队史新纪录</div>
+                    <div class="news-meta">
+                        <div class="news-source">体育周刊</div>
+                        <div class="news-time">昨天</div>
+                    </div>
+                </div>
+                <div class="news-thumbnail"></div>
+            </div>
+            
+            <!-- 新闻条目 5 -->
+            <div class="news-item">
+                <div class="news-info">
+                    <div class="news-title">新能源电池技术取得突破，充电时间大幅缩短，续航里程显著提升</div>
+                    <div class="news-meta">
+                        <div class="news-source">科技创新报</div>
+                        <div class="news-time">昨天</div>
+                    </div>
+                </div>
+                <div class="news-thumbnail"></div>
+            </div>
+        </div>
+        
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <div class="nav-icon">📰</div>
+                <div>首页</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">🔍</div>
+                <div>发现</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">📋</div>
+                <div>视频</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">👤</div>
+                <div>我的</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
