@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情 - 新闻应用原型</title>
+    <style>
+        /* 重置样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 414px;
+            height: 896px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            border-radius: 30px;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            height: 50px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .back-btn {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .share-btn {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        /* 文章内容 */
+        .article-container {
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100% - 110px);
+        }
+        
+        .article-header {
+            margin-bottom: 20px;
+        }
+        
+        .article-title {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+        
+        .article-source {
+            margin-right: 15px;
+        }
+        
+        .article-time {
+            margin-right: 15px;
+        }
+        
+        .article-banner {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .article-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* 底部互动栏 */
+        .interaction-bar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .interaction-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .interaction-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .comment-input {
+            flex: 1;
+            height: 36px;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            padding: 0 15px;
+            font-size: 14px;
+            color: #999;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="navbar">
+            <div class="back-btn">←</div>
+            <div class="share-btn">⋮</div>
+        </div>
+        
+        <!-- 文章内容 -->
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">人工智能在医疗领域的最新应用，为患者带来了更加精准的诊断和治疗方案</h1>
+                <div class="article-meta">
+                    <div class="article-source">科技日报</div>
+                    <div class="article-time">2025年4月17日</div>
+                    <div class="article-views">阅读 3,245</div>
+                </div>
+            </div>
+            
+            <div class="article-banner">文章封面图</div>
+            
+            <div class="article-content">
+                <p>近年来，人工智能技术在医疗领域的应用日益广泛，从辅助诊断到手术规划，再到个性化治疗方案的制定，AI正在改变传统医疗模式，为患者带来更加精准和个性化的医疗服务。</p>
+                
+                <p>在诊断方面，基于深度学习的AI系统已能够识别医学影像中的异常，如CT、MRI和X光片中的病变。多项研究表明，这些AI系统的诊断准确率在某些领域已接近或超过专业医生。例如，在肺部结节检测中，AI系统能够检测到直径仅为几毫米的微小病变，这些病变很容易被人眼忽略。</p>
+                
+                <p>在治疗规划方面，AI系统能够整合患者的各项检查数据、病史记录以及最新的医学研究成果，生成个性化的治疗方案。这种方案不仅考虑了疾病本身的特点，还充分考虑了患者的个体差异，如年龄、体质、基因特征等因素，使治疗效果更加显著，同时减少了不必要的副作用。</p>
+                
+                <p>此外，AI技术还在药物研发、疾病预防和健康管理等方面发挥着重要作用。通过分析海量的医疗数据，AI系统能够帮助科研人员发现新的药物靶点，加速新药研发进程；能够预测疾病爆发的可能性和范围，为公共卫生决策提供参考；还能够根据个人健康数据，提供个性化的健康管理建议，帮助人们预防疾病，保持健康状态。</p>
+                
+                <p>然而，专家们也指出，尽管AI技术在医疗领域有着广阔的应用前景，但仍面临着数据安全、算法透明度、伦理道德等方面的挑战。如何在发挥AI技术优势的同时，保障患者隐私和权益，是医疗AI发展过程中需要认真思考和解决的问题。</p>
+                
+                <p>未来，随着技术的不断进步和相关法规的完善，人工智能将在医疗领域发挥更大的作用，为人类健康带来更多福祉。</p>
+            </div>
+        </div>
+        
+        <!-- 底部互动栏 -->
+        <div class="interaction-bar">
+            <div class="comment-input">写评论...</div>
+            <div class="interaction-item">
+                <div class="interaction-icon">👍</div>
+                <div>128</div>
+            </div>
+            <div class="interaction-item">
+                <div class="interaction-icon">⭐</div>
+                <div>收藏</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
